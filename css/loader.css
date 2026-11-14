@@ -1,0 +1,114 @@
+/* ===== Loading / splash screen ===== */
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at 50% 40%, rgba(242, 120, 58, 0.25), transparent 55%),
+    var(--bg);
+  transition: opacity 0.7s var(--ease-out), visibility 0.7s;
+}
+
+.loader.is-done {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loader__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+  padding: var(--gutter);
+  text-align: center;
+}
+
+.loader__logo-wrap {
+  position: relative;
+  width: 190px;
+  height: 190px;
+  display: grid;
+  place-items: center;
+}
+
+/* Spinning gradient ring */
+.loader__ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, var(--yellow), var(--orange), var(--red), transparent 70%, var(--yellow));
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 4px), #000 calc(100% - 3px));
+  mask: radial-gradient(farthest-side, transparent calc(100% - 4px), #000 calc(100% - 3px));
+  animation: spin 1.6s linear infinite;
+  filter: drop-shadow(0 0 10px rgba(242, 120, 58, 0.7));
+}
+
+.loader__pulse {
+  position: absolute;
+  inset: 18px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 201, 60, 0.35), transparent 70%);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.loader__logo {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  animation: float 3s ease-in-out infinite;
+  filter: drop-shadow(0 6px 18px rgba(242, 120, 58, 0.45));
+}
+
+.loader__title {
+  font-size: 1.9rem;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+}
+
+.loader__tagline {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-top: -14px;
+}
+
+.loader__bar {
+  width: 200px;
+  height: 6px;
+  border-radius: 99px;
+  background: var(--surface-2);
+  overflow: hidden;
+}
+
+.loader__bar span {
+  display: block;
+  height: 100%;
+  width: 0%;
+  border-radius: inherit;
+  background: var(--grad-brand);
+  box-shadow: var(--glow);
+  transition: width 0.4s var(--ease-out);
+}
+
+.loader__status {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  min-height: 1.4em;
+}
+
+.loader__enter {
+  position: relative;
+  overflow: hidden;
+  padding: 14px 38px;
+  border-radius: 99px;
+  background: var(--grad-brand);
+  color: #fff;
+  font-weight: 800;
+  font-size: 1.1rem;
+  box-shadow: var(--glow), var(--shadow);
+  animation: pop-in 0.5s var(--ease-spring) both, breathe 2.4s ease-in-out 0.5s infinite;
+}

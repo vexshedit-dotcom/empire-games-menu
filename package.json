@@ -1,0 +1,9 @@
+{
+  "name": "empire-games-menu",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Digital QR menu for Empire Games café (static site, no backend).",
+  "scripts": {
+    "start": "node tools/serve.js"
+  }
+}

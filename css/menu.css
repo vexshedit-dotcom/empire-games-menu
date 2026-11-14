@@ -1,0 +1,297 @@
+/* ===== Category page & menu items ===== */
+.cat-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.back-btn {
+  flex-shrink: 0;
+}
+
+[dir="ltr"] .back-btn svg {
+  transform: scaleX(-1);
+}
+
+.cat-head__icon {
+  font-size: 2.2rem;
+  line-height: 1;
+  filter: drop-shadow(0 4px 10px rgba(242, 120, 58, 0.4));
+}
+
+.cat-head__title {
+  font-size: 1.45rem;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.cat-head__count {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+/* Info note (hookah types, meal offer) */
+.note {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 12px 14px;
+  margin-bottom: 16px;
+  border-radius: var(--radius-sm);
+  background: var(--grad-soft);
+  border: 1px dashed rgba(242, 120, 58, 0.45);
+  font-size: 0.86rem;
+  line-height: 1.6;
+}
+
+.note__icon {
+  font-size: 1.2rem;
+  line-height: 1.3;
+}
+
+/* Sub-section (e.g. Hot / Iced, Chicken / Beef / Pizza) */
+.group + .group {
+  margin-top: 22px;
+}
+
+.group__title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.group__title .gradient-bar {
+  flex: 1;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(to var(--line-dir, left), var(--orange), transparent);
+}
+
+[dir="ltr"] .group__title .gradient-bar {
+  --line-dir: right;
+}
+
+/* ----- Item list ----- */
+.items {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.item {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: var(--radius);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  transition: transform 0.2s var(--ease-spring), border-color 0.3s, box-shadow 0.3s;
+  animation: rise-in 0.5s var(--ease-out) both;
+  animation-delay: calc(min(var(--i, 0), 12) * 35ms);
+}
+
+.item::before {
+  /* accent stripe on the start edge */
+  content: "";
+  position: absolute;
+  inset-block: 10px;
+  inset-inline-start: 0;
+  width: 3px;
+  border-radius: 3px;
+  background: var(--grad-brand);
+  opacity: 0.8;
+}
+
+.item:active {
+  transform: scale(0.98);
+  border-color: var(--orange);
+  box-shadow: var(--glow);
+}
+
+.item__info {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.item__name {
+  font-weight: 700;
+  font-size: 0.98rem;
+  line-height: 1.35;
+}
+
+.item__alt {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  line-height: 1.3;
+}
+
+.item__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 1px 8px;
+  border-radius: 99px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  border: 1px solid rgba(242, 120, 58, 0.45);
+  color: var(--orange);
+  background: rgba(242, 120, 58, 0.08);
+}
+
+.tag--wood {
+  border-color: rgba(166, 106, 60, 0.6);
+  color: #c48a52;
+  background: rgba(166, 106, 60, 0.12);
+}
+
+/* ----- Prices ----- */
+.prices {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.price {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+  padding: 5px 12px;
+  border-radius: 99px;
+  background: var(--price-bg);
+  color: var(--price-text);
+  font-weight: 800;
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+.price__cur {
+  font-size: 0.7rem;
+  font-weight: 700;
+  opacity: 0.85;
+}
+
+.price__label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-inline-end: 2px;
+}
+
+/* ----- Hookah layout: 2-column flavour cards ----- */
+.items--hookah {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.hookah {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px 12px 12px;
+  border-radius: var(--radius);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  animation: rise-in 0.5s var(--ease-out) both;
+  animation-delay: calc(min(var(--i, 0), 12) * 35ms);
+  transition: transform 0.2s var(--ease-spring), box-shadow 0.3s, border-color 0.3s;
+}
+
+.hookah:active {
+  transform: scale(0.97);
+  border-color: var(--orange);
+  box-shadow: var(--glow);
+}
+
+.hookah__smoke {
+  position: absolute;
+  top: -14px;
+  inset-inline-end: -10px;
+  font-size: 3.2rem;
+  opacity: 0.1;
+  pointer-events: none;
+  animation: drift 6s ease-in-out infinite;
+}
+
+.hookah__name {
+  font-weight: 800;
+  font-size: 1rem;
+  line-height: 1.3;
+}
+
+.hookah__alt {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: -6px;
+}
+
+.hookah__prices {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: auto;
+}
+
+.hookah__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  background: var(--price-bg);
+  font-size: 0.8rem;
+}
+
+.hookah__row b {
+  color: var(--price-text);
+  font-weight: 800;
+}
+
+.hookah__row--wood {
+  background: rgba(166, 106, 60, 0.14);
+}
+
+.hookah--wood {
+  border-color: rgba(166, 106, 60, 0.4);
+}
+
+/* ----- Search results ----- */
+.search-result__cat {
+  font-size: 0.72rem;
+  color: var(--orange);
+  font-weight: 700;
+}
+
+.empty {
+  text-align: center;
+  padding: 50px 10px;
+  color: var(--text-muted);
+}
+
+.empty__icon {
+  font-size: 2.6rem;
+  margin-bottom: 8px;
+}

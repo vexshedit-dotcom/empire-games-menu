@@ -1,0 +1,65 @@
+/* ===== Design tokens: brand colors, themes, spacing ===== */
+:root {
+  /* Brand (from the Empire Games logo) */
+  --yellow: #ffc93c;
+  --orange: #f2783a;
+  --orange-deep: #e85d1f;
+  --red: #e8352b;
+  --cream: #fdf3dc;
+  --white: #ffffff;
+
+  --grad-brand: linear-gradient(135deg, var(--yellow) 0%, var(--orange) 50%, var(--red) 100%);
+  --grad-soft: linear-gradient(135deg, rgba(255, 201, 60, 0.18), rgba(232, 53, 43, 0.12));
+
+  --font: "Cairo", system-ui, -apple-system, "Segoe UI", Tahoma, sans-serif;
+
+  --radius-sm: 10px;
+  --radius: 16px;
+  --radius-lg: 24px;
+  --gutter: 16px;
+  --app-width: 480px;
+  --topbar-h: 60px;
+  --chips-h: 56px;
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ----- Dark theme (default) ----- */
+:root,
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #120906;
+  --bg-2: #1c0f0a;
+  --surface: rgba(255, 244, 230, 0.05);
+  --surface-2: rgba(255, 244, 230, 0.09);
+  --surface-solid: #22130c;
+  --border: rgba(255, 201, 60, 0.14);
+  --text: #fff4e6;
+  --text-muted: #c7a68c;
+  --price-bg: rgba(242, 120, 58, 0.16);
+  --price-text: #ffc93c;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  --glow: 0 0 24px rgba(242, 120, 58, 0.45);
+  --topbar-bg: rgba(18, 9, 6, 0.72);
+  --particle-alpha: 0.9;
+}
+
+/* ----- Light theme ----- */
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg: #fff8ef;
+  --bg-2: #ffeedb;
+  --surface: rgba(255, 255, 255, 0.78);
+  --surface-2: #ffffff;
+  --surface-solid: #ffffff;
+  --border: rgba(232, 93, 31, 0.16);
+  --text: #2a140a;
+  --text-muted: #8a6a55;
+  --price-bg: rgba(242, 120, 58, 0.12);
+  --price-text: #d9461a;
+  --shadow: 0 10px 28px rgba(140, 60, 20, 0.12);
+  --glow: 0 0 22px rgba(242, 120, 58, 0.35);
+  --topbar-bg: rgba(255, 248, 239, 0.8);
+  --particle-alpha: 0.55;
+}
