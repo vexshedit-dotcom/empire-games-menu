@@ -19,7 +19,9 @@ fs.mkdirSync(path.join(DIST, "a"), { recursive: true });
 
 /* ---------- Hashed static files ---------- */
 const renames = {};
-for (const file of ["assets/images/logo.webp", "assets/images/icon.png", "assets/fonts/cairo.woff2"]) {
+const core = ["assets/images/logo.webp", "assets/images/icon.png", "assets/fonts/cairo.woff2"];
+const photos = fs.readdirSync(path.join(ROOT, "assets/images/menu")).map((f) => `assets/images/menu/${f}`);
+for (const file of [...core, ...photos]) {
   const data = fs.readFileSync(path.join(ROOT, file));
   const { name, ext } = path.parse(file);
   renames[file] = `a/${name}.${hash(data)}${ext}`;
@@ -57,7 +59,8 @@ fs.writeFileSync(path.join(DIST, "index.html"), html);
 /* ---------- Service worker ---------- */
 const sw = read("tools/sw.template.js")
   .replace("__VERSION__", hash(html))
-  .replace("__FILES__", JSON.stringify(["./", ...Object.values(renames)]));
+  .replace("__PHOTOS__", JSON.stringify(photos.map((f) => renames[f])))
+  .replace("__FILES__", JSON.stringify(["./", ...core.map((f) => renames[f])]));
 fs.writeFileSync(path.join(DIST, "sw.js"), sw);
 
 /* ---------- Hosting config ---------- */

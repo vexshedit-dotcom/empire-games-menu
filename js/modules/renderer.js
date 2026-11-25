@@ -84,6 +84,9 @@ function itemInfo(item, extraMeta = "") {
     </div>`;
 }
 
+const photo = (item, cls) =>
+  `<span class="${cls}"><img src="${item.img}" alt="${esc(pick(item))}" width="420" height="420" loading="lazy" decoding="async" onload="this.classList.add('is-loaded')" onerror="this.remove()" /></span>`;
+
 /** Compact hookah prices (used in search results). */
 const hookahPrices = (item) =>
   item.woodOnly
@@ -97,8 +100,21 @@ function standardItem(item, i, extraMeta = "", pricesOverride) {
     (item.sizes ? item.sizes.map((s) => priceHTML(s.price, pick(SIZES[s.size]))).join("") : priceHTML(item.price));
   return `
     <li class="item ripple" style="--i:${i}">
+      ${item.img ? photo(item, "item__thumb") : ""}
       ${itemInfo(item, meta)}
       <div class="prices">${prices}</div>
+    </li>`;
+}
+
+/** Photo card (two per row). */
+function photoItem(item, i) {
+  return `
+    <li class="photo-card ripple" style="--i:${i}">
+      ${photo(item, "photo-card__img")}
+      <div class="photo-card__body">
+        ${itemInfo(item)}
+        ${priceHTML(item.price)}
+      </div>
     </li>`;
 }
 
@@ -119,13 +135,20 @@ function hookahItem(item, i) {
 
 function groupHTML(cat, group, startIndex) {
   const isHookah = cat.type === "hookah";
-  const items = group.items
-    .map((item, i) => (isHookah ? hookahItem(item, startIndex + i) : standardItem(item, startIndex + i)))
+  // Items with a photo come first as cards, the rest follow as normal rows.
+  const withPhoto = group.items.filter((item) => item.img);
+  const rest = group.items.filter((item) => !item.img);
+  const items = rest
+    .map((item, i) => (isHookah ? hookahItem : standardItem)(item, startIndex + withPhoto.length + i))
     .join("");
+  const photos = withPhoto.length
+    ? `<ul class="items items--photos">${withPhoto.map((item, i) => photoItem(item, startIndex + i)).join("")}</ul>`
+    : "";
+  const list = items ? `<ul class="items${isHookah ? " items--hookah" : ""}">${items}</ul>` : "";
   const title = group.name
     ? `<h3 class="group__title">${group.icon ? `<span>${group.icon}</span>` : ""}${esc(pick(group.name))}<span class="gradient-bar"></span></h3>`
     : "";
-  return `<section class="group">${title}<ul class="items${isHookah ? " items--hookah" : ""}">${items}</ul></section>`;
+  return `<section class="group">${title}${photos}${list}</section>`;
 }
 
 function notesHTML(cat) {

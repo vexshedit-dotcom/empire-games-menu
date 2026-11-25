@@ -203,6 +203,83 @@
   margin-inline-end: 2px;
 }
 
+/* ----- Photos ----- */
+.items--photos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.items--photos + .items {
+  margin-top: 12px;
+}
+
+.photo-card {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--radius);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  animation: rise-in 0.5s var(--ease-out) both;
+  animation-delay: calc(min(var(--i, 0), 12) * 35ms);
+  transition: transform 0.2s var(--ease-spring), border-color 0.3s, box-shadow 0.3s;
+}
+
+.photo-card:active {
+  transform: scale(0.97);
+  border-color: var(--orange);
+  box-shadow: var(--glow);
+}
+
+.photo-card__img,
+.item__thumb {
+  display: block;
+  overflow: hidden;
+  background: #fdfdfd;
+}
+
+.photo-card__img {
+  aspect-ratio: 1;
+}
+
+.item__thumb {
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  border-radius: 12px;
+}
+
+.photo-card__img img,
+.item__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.35s;
+}
+
+.photo-card__img img.is-loaded,
+.item__thumb img.is-loaded {
+  opacity: 1;
+}
+
+.photo-card__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 12px 12px;
+}
+
+.item__thumb + .item__info {
+  flex: 1;
+}
+
 /* ----- Hookah layout: 2-column flavour cards ----- */
 .items--hookah {
   display: grid;

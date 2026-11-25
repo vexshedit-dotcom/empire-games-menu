@@ -13,6 +13,7 @@
  *   price     single price (IQD)
  *   sizes     optional list of { size: <key in SIZES>, price } instead of price
  *   desc      optional { ar, en } small description under the name
+ *   img       optional photo path (square, in assets/images/menu)
  *   meal      true = can be turned into a meal (+ CONFIG.meal.extra)
  *   woodOnly  hookah only: available as wooden hookah only
  */
@@ -78,14 +79,14 @@ export const MENU = [
     groups: [
       {
         items: [
-          { ar: "سموذي فراولة", en: "Strawberry Smoothie", price: 4000 },
-          { ar: "سموذي بلوبيري", en: "Blueberry Smoothie", price: 4000 },
-          { ar: "سموذي باشن فروت", en: "Passion Fruit Smoothie", price: 4000 },
-          { ar: "سموذي أناناس", en: "Pineapple Smoothie", price: 4000 },
-          { ar: "سموذي توت", en: "Berry Smoothie", price: 4000 },
-          { ar: "سموذي ريد بيري", en: "Red Berry Smoothie", price: 4000 },
-          { ar: "سموذي كيوي", en: "Kiwi Smoothie", price: 4000 },
-          { ar: "سموذي رمان", en: "Pomegranate Smoothie", price: 4000 },
+          { ar: "سموذي فراولة", en: "Strawberry Smoothie", price: 4000, img: "assets/images/menu/smoothie-strawberry.webp" },
+          { ar: "سموذي بلوبيري", en: "Blueberry Smoothie", price: 4000, img: "assets/images/menu/smoothie-blueberry.webp" },
+          { ar: "سموذي باشن فروت", en: "Passion Fruit Smoothie", price: 4000, img: "assets/images/menu/smoothie-passion.webp" },
+          { ar: "سموذي أناناس", en: "Pineapple Smoothie", price: 4000, img: "assets/images/menu/smoothie-pineapple.webp" },
+          { ar: "سموذي توت", en: "Berry Smoothie", price: 4000, img: "assets/images/menu/smoothie-berry.webp" },
+          { ar: "سموذي ريد بيري", en: "Red Berry Smoothie", price: 4000, img: "assets/images/menu/smoothie-redberry.webp" },
+          { ar: "سموذي كيوي", en: "Kiwi Smoothie", price: 4000, img: "assets/images/menu/smoothie-kiwi.webp" },
+          { ar: "سموذي رمان", en: "Pomegranate Smoothie", price: 4000, img: "assets/images/menu/smoothie-pomegranate.webp" },
         ],
       },
     ],
@@ -97,14 +98,14 @@ export const MENU = [
     groups: [
       {
         items: [
-          { ar: "ميلك شيك نوتيلا", en: "Nutella Milkshake", price: 4500 },
-          { ar: "ميلك شيك أوريو", en: "Oreo Milkshake", price: 4500 },
-          { ar: "ميلك شيك لوتس", en: "Lotus Milkshake", price: 4500 },
-          { ar: "ميلك شيك كندر", en: "Kinder Milkshake", price: 4500 },
-          { ar: "ميلك شيك بستاشيو", en: "Pistachio Milkshake", price: 4500 },
+          { ar: "ميلك شيك نوتيلا", en: "Nutella Milkshake", price: 4500, img: "assets/images/menu/shake-nutella.webp" },
+          { ar: "ميلك شيك أوريو", en: "Oreo Milkshake", price: 4500, img: "assets/images/menu/shake-oreo.webp" },
+          { ar: "ميلك شيك لوتس", en: "Lotus Milkshake", price: 4500, img: "assets/images/menu/shake-lotus.webp" },
+          { ar: "ميلك شيك كندر", en: "Kinder Milkshake", price: 4500, img: "assets/images/menu/shake-kinder.webp" },
+          { ar: "ميلك شيك بستاشيو", en: "Pistachio Milkshake", price: 4500, img: "assets/images/menu/shake-pistachio.webp" },
           { ar: "ميلك شيك فانيلا", en: "Vanilla Milkshake", price: 4500 },
           { ar: "ميلك شيك كراميل", en: "Caramel Milkshake", price: 4500 },
-          { ar: "ميلك شيك سبيشل", en: "Special Milkshake", price: 5000 },
+          { ar: "ميلك شيك سبيشل", en: "Special Milkshake", price: 5000, img: "assets/images/menu/shake-special.webp" },
         ],
       },
     ],
@@ -138,17 +139,17 @@ export const MENU = [
     groups: [
       {
         items: [
-          { ar: "كريب كلاسيك", en: "Classic Crêpe", price: 3500 },
-          { ar: "فوتوشيني كريب", en: "Fettuccine Crêpe", price: 4000 },
-          { ar: "كريب مكسرات", en: "Nuts Crêpe", price: 5000 },
-          { ar: "كريب لوتس", en: "Lotus Crêpe", price: 5000 },
-          { ar: "كريب أوريو", en: "Oreo Crêpe", price: 5000 },
-          { ar: "كريب بستاشيو", en: "Pistachio Crêpe", price: 5000 },
-          { ar: "كريب كندر", en: "Kinder Crêpe", price: 5000 },
-          { ar: "كريب فواكه", en: "Fruit Crêpe", price: 5000 },
-          { ar: "كريب سبيشل", en: "Special Crêpe", price: 5000 },
-          { ar: "سوشي كريب", en: "Sushi Crêpe", price: 5000 },
-          { ar: "بقجة كريب", en: "Crêpe Bundle", price: 7000 },
+          { ar: "كريب كلاسيك", en: "Classic Crêpe", price: 3500, img: "assets/images/menu/crepe-classic.webp" },
+          { ar: "فوتوشيني كريب", en: "Fettuccine Crêpe", price: 4000, img: "assets/images/menu/crepe-fettuccine.webp" },
+          { ar: "كريب مكسرات", en: "Nuts Crêpe", price: 5000, img: "assets/images/menu/crepe-nuts.webp" },
+          { ar: "كريب لوتس", en: "Lotus Crêpe", price: 5000, img: "assets/images/menu/crepe-lotus.webp" },
+          { ar: "كريب أوريو", en: "Oreo Crêpe", price: 5000, img: "assets/images/menu/crepe-oreo.webp" },
+          { ar: "كريب بستاشيو", en: "Pistachio Crêpe", price: 5000, img: "assets/images/menu/crepe-pistachio.webp" },
+          { ar: "كريب كندر", en: "Kinder Crêpe", price: 5000, img: "assets/images/menu/crepe-kinder.webp" },
+          { ar: "كريب فواكه", en: "Fruit Crêpe", price: 5000, img: "assets/images/menu/crepe-fruit.webp" },
+          { ar: "كريب سبيشل", en: "Special Crêpe", price: 5000, img: "assets/images/menu/crepe-special.webp" },
+          { ar: "سوشي كريب", en: "Sushi Crêpe", price: 5000, img: "assets/images/menu/crepe-sushi.webp" },
+          { ar: "بقجة كريب", en: "Crêpe Bundle", price: 7000, img: "assets/images/menu/crepe-bundle.webp" },
         ],
       },
     ],
@@ -198,13 +199,13 @@ export const MENU = [
         name: { ar: "الشاي الساخن", en: "Hot Tea" },
         icon: "🍵",
         items: [
-          { ar: "شاي عراقي", en: "Iraqi Tea", price: 1000 },
-          { ar: "شاي ليمون", en: "Lemon Tea", price: 1500 },
+          { ar: "شاي عراقي", en: "Iraqi Tea", price: 1000, img: "assets/images/menu/tea-iraqi.webp" },
+          { ar: "شاي ليمون", en: "Lemon Tea", price: 1500, img: "assets/images/menu/tea-lemon.webp" },
           { ar: "شاي كرك", en: "Karak Tea", price: 1500 },
-          { ar: "شاي رمان", en: "Pomegranate Tea", price: 1500 },
-          { ar: "شاي توت أزرق", en: "Blueberry Tea", price: 1500 },
-          { ar: "شاي توت أحمر", en: "Red Berry Tea", price: 1500 },
-          { ar: "شاي ورد", en: "Rose Tea", price: 1500 },
+          { ar: "شاي رمان", en: "Pomegranate Tea", price: 1500, img: "assets/images/menu/tea-pomegranate.webp" },
+          { ar: "شاي توت أزرق", en: "Blueberry Tea", price: 1500, img: "assets/images/menu/tea-blueberry.webp" },
+          { ar: "شاي توت أحمر", en: "Red Berry Tea", price: 1500, img: "assets/images/menu/tea-redberry.webp" },
+          { ar: "شاي ورد", en: "Rose Tea", price: 1500, img: "assets/images/menu/tea-rose.webp" },
           { ar: "جاي حليب", en: "Milk Tea", price: 1500 },
         ],
       },
@@ -219,13 +220,13 @@ export const MENU = [
         name: { ar: "القهوة الباردة", en: "Iced Coffee" },
         icon: "🧋",
         items: [
-          { ar: "ايس لاتيه", en: "Iced Latte", price: 3000 },
-          { ar: "ايس امريكانو", en: "Iced Americano", price: 3000 },
-          { ar: "ايس فانيلا لاتيه", en: "Iced Vanilla Latte", price: 4000 },
-          { ar: "ايس موكا", en: "Iced Mocha", price: 4000 },
-          { ar: "ايس كراميل لاتيه", en: "Iced Caramel Latte", price: 4000 },
+          { ar: "ايس لاتيه", en: "Iced Latte", price: 3000, img: "assets/images/menu/iced-latte.webp" },
+          { ar: "ايس امريكانو", en: "Iced Americano", price: 3000, img: "assets/images/menu/iced-americano.webp" },
+          { ar: "ايس فانيلا لاتيه", en: "Iced Vanilla Latte", price: 4000, img: "assets/images/menu/iced-vanilla.webp" },
+          { ar: "ايس موكا", en: "Iced Mocha", price: 4000, img: "assets/images/menu/iced-mocha.webp" },
+          { ar: "ايس كراميل لاتيه", en: "Iced Caramel Latte", price: 4000, img: "assets/images/menu/iced-caramel.webp" },
           { ar: "ايس نوتيلا", en: "Iced Nutella", price: 4000 },
-          { ar: "ايس بستاشيو", en: "Iced Pistachio", price: 5000 },
+          { ar: "ايس بستاشيو", en: "Iced Pistachio", price: 5000, img: "assets/images/menu/iced-pistachio.webp" },
           { ar: "ايس كندر", en: "Iced Kinder", price: 5000 },
         ],
       },

@@ -4,6 +4,8 @@
  */
 const CACHE = "empire-__VERSION__";
 const FILES = __FILES__;
+const PHOTOS = __PHOTOS__; // saved the first time each one is viewed
+const PHOTO_CACHE = "photos-empire";
 
 self.addEventListener("install", (e) => {
   e.waitUntil(caches.open(CACHE).then((c) => c.addAll(FILES)).then(() => self.skipWaiting()));
@@ -14,6 +16,11 @@ self.addEventListener("activate", (e) => {
     caches
       .keys()
       .then((keys) => Promise.all(keys.filter((k) => k.startsWith("empire-") && k !== CACHE).map((k) => caches.delete(k))))
+      .then(async () => {
+        const cache = await caches.open(PHOTO_CACHE);
+        const keep = PHOTOS.map((p) => new URL(p, self.registration.scope).href);
+        for (const req of await cache.keys()) if (!keep.includes(req.url)) await cache.delete(req);
+      })
       .then(() => self.clients.claim())
   );
 });
@@ -32,9 +39,20 @@ async function page(event) {
   return Promise.race([network.catch(() => saved), timeout]);
 }
 
+async function asset(request) {
+  const hit = await caches.match(request);
+  if (hit) return hit;
+  const res = await fetch(request);
+  if (res.ok && PHOTOS.some((p) => request.url.endsWith(p))) {
+    const copy = res.clone();
+    caches.open(PHOTO_CACHE).then((c) => c.put(request, copy));
+  }
+  return res;
+}
+
 self.addEventListener("fetch", (e) => {
   const url = new URL(e.request.url);
   if (e.request.method !== "GET" || url.origin !== location.origin) return;
   if (e.request.mode === "navigate") e.respondWith(page(e));
-  else if (url.pathname.includes("/a/")) e.respondWith(caches.match(e.request).then((hit) => hit || fetch(e.request)));
+  else if (url.pathname.includes("/a/")) e.respondWith(asset(e.request));
 });
