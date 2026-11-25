@@ -12,13 +12,14 @@
  *   ar / en   names
  *   price     single price (IQD)
  *   sizes     optional list of { size: <key in SIZES>, price } instead of price
+ *   desc      optional { ar, en } small description under the name
  *   meal      true = can be turned into a meal (+ CONFIG.meal.extra)
  *   woodOnly  hookah only: available as wooden hookah only
  */
 
 export const SIZES = {
-  medium: { ar: "وسط", en: "Medium" },
-  family: { ar: "عائلي", en: "Family" },
+  small: { ar: "صغير", en: "Small" },
+  large: { ar: "كبير", en: "Large" },
 };
 
 export const MENU = [
@@ -65,7 +66,7 @@ export const MENU = [
           { ar: "موهيتو كراميل", en: "Caramel Mojito", price: 3500 },
           { ar: "موهيتو فانيلا", en: "Vanilla Mojito", price: 3500 },
           { ar: "موهيتو كرز", en: "Cherry Mojito", price: 3500 },
-          { ar: "موهيتو أمباير", en: "Empire Mojito", price: 4500 },
+          { ar: "موهيتو امباير", en: "Empire Mojito", price: 4500 },
         ],
       },
     ],
@@ -115,7 +116,7 @@ export const MENU = [
     groups: [
       {
         items: [
-          { ar: "مكسيكي تايغر", en: "Mexican Tiger", price: 3000 },
+          { ar: "مكسيكي تايكر", en: "Mexican Tiger", price: 3000 },
           { ar: "مكسيكي امباير", en: "Mexican Empire", price: 4000 },
           { ar: "مكسيكي ريد بول", en: "Mexican Red Bull", price: 4000 },
           { ar: "ريد بول فراولة", en: "Red Bull Strawberry", price: 4000 },
@@ -125,7 +126,7 @@ export const MENU = [
           { ar: "ريد بول باشن فروت", en: "Red Bull Passion Fruit", price: 4000 },
           { ar: "ريد بول تفاح", en: "Red Bull Apple", price: 4000 },
           { ar: "ريد بول", en: "Red Bull", price: 3000 },
-          { ar: "تايغر", en: "Tiger", price: 1500 },
+          { ar: "تايكر", en: "Tiger", price: 1500 },
         ],
       },
     ],
@@ -171,13 +172,13 @@ export const MENU = [
     ],
   },
   {
-    id: "coffee",
+    id: "hot-drinks",
     icon: "☕",
-    name: { ar: "القهوة", en: "Coffee" },
+    name: { ar: "المشروبات الساخنة", en: "Hot Drinks" },
     groups: [
       {
-        name: { ar: "المشروبات الساخنة", en: "Hot Drinks" },
-        icon: "🔥",
+        name: { ar: "القهوة الساخنة", en: "Hot Coffee" },
+        icon: "☕",
         items: [
           { ar: "اسبريسو سنكل", en: "Single Espresso", price: 2500 },
           { ar: "اسبريسو دبل", en: "Double Espresso", price: 4000 },
@@ -191,12 +192,32 @@ export const MENU = [
           { ar: "كبتشينو", en: "Cappuccino", price: 3000 },
           { ar: "نسكافيه", en: "Nescafé", price: 3000 },
           { ar: "حليب / حليب ككو", en: "Milk / Cocoa Milk", price: 1500 },
-          { ar: "جاي حليب", en: "Milk Tea", price: 1500 },
         ],
       },
       {
+        name: { ar: "الشاي الساخن", en: "Hot Tea" },
+        icon: "🍵",
+        items: [
+          { ar: "شاي عراقي", en: "Iraqi Tea", price: 1000 },
+          { ar: "شاي ليمون", en: "Lemon Tea", price: 1500 },
+          { ar: "شاي كرك", en: "Karak Tea", price: 1500 },
+          { ar: "شاي رمان", en: "Pomegranate Tea", price: 1500 },
+          { ar: "شاي توت أزرق", en: "Blueberry Tea", price: 1500 },
+          { ar: "شاي توت أحمر", en: "Red Berry Tea", price: 1500 },
+          { ar: "شاي ورد", en: "Rose Tea", price: 1500 },
+          { ar: "جاي حليب", en: "Milk Tea", price: 1500 },
+        ],
+      },
+    ],
+  },
+  {
+    id: "cold-drinks",
+    icon: "🧊",
+    name: { ar: "المشروبات الباردة", en: "Cold Drinks" },
+    groups: [
+      {
         name: { ar: "القهوة الباردة", en: "Iced Coffee" },
-        icon: "🧊",
+        icon: "🧋",
         items: [
           { ar: "ايس لاتيه", en: "Iced Latte", price: 3000 },
           { ar: "ايس امريكانو", en: "Iced Americano", price: 3000 },
@@ -208,29 +229,9 @@ export const MENU = [
           { ar: "ايس كندر", en: "Iced Kinder", price: 5000 },
         ],
       },
-    ],
-  },
-  {
-    id: "tea",
-    icon: "🍵",
-    name: { ar: "الشاي", en: "Tea" },
-    groups: [
-      {
-        name: { ar: "الشاي الحار", en: "Hot Tea" },
-        icon: "🔥",
-        items: [
-          { ar: "شاي عراقي", en: "Iraqi Tea", price: 1000 },
-          { ar: "شاي ليمون", en: "Lemon Tea", price: 1500 },
-          { ar: "شاي كرك", en: "Karak Tea", price: 1500 },
-          { ar: "شاي رمان", en: "Pomegranate Tea", price: 1500 },
-          { ar: "شاي توت أزرق", en: "Blueberry Tea", price: 1500 },
-          { ar: "شاي توت أحمر", en: "Red Berry Tea", price: 1500 },
-          { ar: "شاي ورد", en: "Rose Tea", price: 1500 },
-        ],
-      },
       {
         name: { ar: "الشاي البارد", en: "Iced Tea" },
-        icon: "🧊",
+        icon: "🍹",
         items: [
           { ar: "ايس تي تفاح", en: "Apple Iced Tea", price: 1500 },
           { ar: "ايس تي خوخ", en: "Peach Iced Tea", price: 1500 },
@@ -256,7 +257,7 @@ export const MENU = [
           { ar: "فواكه استوائية", en: "Tropical Fruits", price: 5000 },
           { ar: "علج نعناع", en: "Mint Gum", price: 5000 },
           { ar: "ببسي", en: "Pepsi", price: 5000 },
-          { ar: "إمباير", en: "Empire", price: 5000 },
+          { ar: "امباير", en: "Empire", price: 5000 },
           { ar: "تفاحتين", en: "Double Apple", price: 3000, woodOnly: true },
           { ar: "نعناع", en: "Mint", price: 3000, woodOnly: true },
         ],
@@ -270,58 +271,94 @@ export const MENU = [
     name: { ar: "ويست برغر", en: "West Burger" },
     groups: [
       {
-        name: { ar: "الدجاج", en: "Chicken" },
+        name: { ar: "دجاج ويست", en: "West Chicken" },
         icon: "🍗",
         items: [
-          { ar: "مايتي زنجر (إكس لارج)", en: "Mighty Zinger (XL)", price: 7500, meal: true },
-          { ar: "مايتي زنجر", en: "Mighty Zinger", price: 5500, meal: true },
-          { ar: "مايتي لحم مشروم", en: "Mighty Beef Mushroom", price: 6500, meal: true },
-          { ar: "برغر دجاج (120 غم)", en: "Chicken Burger (120g)", price: 5000, meal: true },
-          { ar: "مطافي زنجر", en: "Matafi Zinger", price: 5500, meal: true },
-          { ar: "سندويج توستر", en: "Toaster Sandwich", price: 5500, meal: true },
-          { ar: "مونستر بيتزا دجاج", en: "Monster Chicken Pizza", price: 12000, meal: false },
-          { ar: "وجبة ستربس (4 قطع)", en: "Strips Meal (4 pcs)", price: 9000, meal: false },
-          { ar: "ريزو جامبو", en: "Jumbo Rizo", price: 6000, meal: false },
-          { ar: "ريزو صلصة ويست", en: "West Sauce Rizo", price: 5500, meal: false },
-          { ar: "ريزو جبن مدخن", en: "Smoked Cheese Rizo", price: 5500, meal: false },
-          { ar: "ريزو أعشاب", en: "Herbs Rizo", price: 5500, meal: false },
-          { ar: "ميني ريزو", en: "Mini Rizo", price: 4000, meal: false },
-          { ar: "سيزر سلاد", en: "Caesar Salad", price: 5000, meal: false },
-          { ar: "جكن فرايز", en: "Chicken Fries", price: 5500, meal: false },
-          { ar: "وجبة الأطفال", en: "Kids Meal", price: 5000, meal: false },
+          { ar: "مايتي زنجر", en: "Mighty Zinger", price: 6500, meal: true },
+          { ar: "مايتي زنجر مشروم", en: "Mighty Zinger Mushroom", price: 7000, meal: true },
+          { ar: "مايتي زنجر (اكس لارج)", en: "Mighty Zinger (XL)", price: 8000, meal: true },
+          { ar: "برغر دجاج (120 غم)", en: "Chicken Burger (120g)", price: 6000, meal: true },
+          { ar: "مطافي زنجر", en: "Matafi Zinger", price: 6500, meal: true },
+          { ar: "ساندويش زنكر ويست", en: "West Zinger Sandwich", price: 7500, meal: true },
+          { ar: "ساندويش دجاج توستر", en: "Chicken Toaster Sandwich", price: 6500, meal: true },
+          { ar: "وجبة ستربس (3 قطع)", en: "Strips Meal (3 pcs)", price: 7000 },
+          { ar: "وجبة ستربس (5 قطع)", en: "Strips Meal (5 pcs)", price: 10000 },
+          { ar: "سيزر سلاد دجاج", en: "Chicken Caesar Salad", price: 6000 },
+          { ar: "جكن فرايز", en: "Chicken Fries", price: 6500 },
+          { ar: "ميني جكن فرايز", en: "Mini Chicken Fries", price: 4500 },
         ],
       },
       {
-        name: { ar: "اللحم", en: "Beef" },
+        name: { ar: "ريزو ويست", en: "West Rizo" },
+        icon: "🍚",
+        items: [
+          { ar: "ريزو صلصة ويست", en: "West Sauce Rizo", price: 6500 },
+          { ar: "ريزو سبيشل", en: "Special Rizo", price: 7000 },
+          { ar: "ريزو جبن مدخن", en: "Smoked Cheese Rizo", price: 6500 },
+          { ar: "ريزو سبايسي", en: "Spicy Rizo", price: 6500 },
+          { ar: "ريزو أعشاب", en: "Herbs Rizo", price: 6500 },
+          { ar: "ميني ريزو", en: "Mini Rizo", price: 4500 },
+        ],
+      },
+      {
+        name: { ar: "لحم ويست", en: "West Fresh Meat" },
         icon: "🥩",
         items: [
-          { ar: "كرانجي برغر", en: "Crunchy Burger", price: 6500, meal: true },
-          { ar: "جامبو برغر", en: "Jumbo Burger", price: 6500, meal: true },
-          { ar: "كلاسك برغر", en: "Classic Burger", price: 5500, meal: true },
-          { ar: "مشروم برغر", en: "Mushroom Burger", price: 6000, meal: true },
-          { ar: "مونستر بالمشروم", en: "Monster Mushroom", price: 7000, meal: true },
-          { ar: "مونستر برغر", en: "Monster Burger", price: 8500, meal: true },
-          { ar: "بك ويست ×2", en: "Big West ×2", price: 9500, meal: true },
-          { ar: "تربل كلاسك ×3", en: "Triple Classic ×3", price: 10500, meal: true },
-          { ar: "يوفو برغر", en: "UFO Burger", price: 10000, meal: true },
-          { ar: "برغر 1990", en: "1990 Burger", price: 6000, meal: true },
-          { ar: "حار برغر", en: "Spicy Burger", price: 5500, meal: true },
-          { ar: "هوت دوغ جامبو ×2", en: "Jumbo Hot Dog ×2", price: 5000, meal: true },
-          { ar: "ويست فنكر", en: "West Fries", price: 3000, meal: false },
-          { ar: "تاهو فنكر", en: "Tahoe Fries", price: 5000, meal: false },
-          { ar: "وجبة الأطفال", en: "Kids Meal", price: 5000, meal: false },
+          { ar: "كرانجي برغر", en: "Crunchy Burger", price: 7000, desc: { ar: "لحم 90 غم دبل تشيدر والبطاطا المقرمشة", en: "90g beef, double cheddar and crispy potato" }, meal: true },
+          { ar: "جيزي برغر", en: "Cheesy Burger", price: 7000, meal: true },
+          { ar: "كلاسك برغر", en: "Classic Burger", price: 6500, meal: true },
+          { ar: "صاص برغر", en: "Sauce Burger", price: 6500, meal: true },
+          { ar: "سبيشل ويست بالفطر", en: "West Special Mushroom", price: 7500, meal: true },
+          { ar: "مكسيكو برغر", en: "Mexico Burger", price: 7000, meal: true },
+          { ar: "مونستر برغر", en: "Monster Burger", price: 9500, meal: true },
+          { ar: "برغر 1990", en: "1990 Burger", price: 6500, meal: true },
+          { ar: "يوفو برغر", en: "UFO Burger", price: 10500, meal: true },
+          { ar: "بك ويست ×2", en: "Big West ×2", price: 10500, meal: true },
+          { ar: "تربل تكساس ×3", en: "Triple Texas ×3", price: 12000, meal: true },
+          { ar: "هوت دوغ جامبو ×2", en: "Jumbo Hot Dog ×2", price: 6000, meal: true },
         ],
       },
       {
-        name: { ar: "البيتزا", en: "Pizza" },
+        name: { ar: "بيتزا ويست", en: "West Pizza" },
         icon: "🍕",
         items: [
-          { ar: "بيتزا مونستر لحم", en: "Monster Beef Pizza", sizes: [{ size: "medium", price: 7000 }, { size: "family", price: 14000 }] },
-          { ar: "بيتزا أجبان مكس", en: "Mixed Cheese Pizza", sizes: [{ size: "medium", price: 7000 }, { size: "family", price: 14000 }] },
-          { ar: "بيتزا دجاج متبل", en: "Spiced Chicken Pizza", sizes: [{ size: "medium", price: 7000 }, { size: "family", price: 12000 }] },
-          { ar: "بيتزا بيبروني", en: "Pepperoni Pizza", sizes: [{ size: "medium", price: 7000 }, { size: "family", price: 14000 }] },
-          { ar: "بيتزا مارغريتا", en: "Margherita Pizza", sizes: [{ size: "medium", price: 7000 }, { size: "family", price: 14000 }] },
-          { ar: "بيتزا خضار", en: "Veggie Pizza", sizes: [{ size: "medium", price: 7000 }, { size: "family", price: 12000 }] },
+          { ar: "بيتزا لحم", en: "Beef Pizza", sizes: [{ size: "small", price: 8000 }, { size: "large", price: 15000 }] },
+          { ar: "بيتزا دجاج", en: "Chicken Pizza", sizes: [{ size: "small", price: 8000 }, { size: "large", price: 13000 }] },
+          { ar: "بيتزا ببروني", en: "Pepperoni Pizza", sizes: [{ size: "small", price: 7000 }, { size: "large", price: 14000 }] },
+          { ar: "بيتزا مارغريتا", en: "Margherita Pizza", sizes: [{ size: "small", price: 7000 }, { size: "large", price: 14000 }] },
+          { ar: "بيتزا خضار", en: "Veggie Pizza", sizes: [{ size: "small", price: 7000 }, { size: "large", price: 12000 }] },
+          { ar: "بيتزا دجاج مشوي", en: "Grilled Chicken Pizza", sizes: [{ size: "small", price: 8000 }, { size: "large", price: 13000 }] },
+        ],
+      },
+      {
+        name: { ar: "المقبلات والفنكر", en: "Sides & Fries" },
+        icon: "🍟",
+        items: [
+          { ar: "تاهو فنكر (لحم + جبن)", en: "Tahoe Fries (Beef + Cheese)", price: 6000 },
+          { ar: "أجنحة (6 قطع)", en: "Wings (6 pcs)", price: 5500 },
+          { ar: "حلقات البصل", en: "Onion Rings", price: 3000 },
+          { ar: "ويست فنكر", en: "West Fries", price: 3000 },
+          { ar: "ويست فنكر بالجبن", en: "West Cheese Fries", price: 3000 },
+          { ar: "قدح فنكر", en: "Fries Cup", price: 1500 },
+        ],
+      },
+      {
+        name: { ar: "الصوصات", en: "Sauces" },
+        icon: "🥫",
+        items: [
+          { ar: "صوص اورجنال", en: "Original Sauce", price: 1000 },
+          { ar: "صوص اعشاب", en: "Herbs Sauce", price: 1000 },
+          { ar: "صوص ثومية", en: "Garlic Sauce", price: 1000 },
+          { ar: "صوص باربيكيو", en: "BBQ Sauce", price: 1000 },
+        ],
+      },
+      {
+        name: { ar: "المشروبات", en: "Drinks" },
+        icon: "🥤",
+        items: [
+          { ar: "ماء", en: "Water", price: 500 },
+          { ar: "بيبسي", en: "Pepsi", price: 750 },
+          { ar: "بيبسي فريش", en: "Fresh Pepsi", price: 1000 },
         ],
       },
     ],

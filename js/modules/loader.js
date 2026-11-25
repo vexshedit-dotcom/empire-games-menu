@@ -15,16 +15,18 @@ export function runLoader() {
   const tick = setInterval(() => {
     progress = Math.min(90, progress + Math.random() * 18);
     bar.style.width = `${progress}%`;
-  }, 220);
+  }, 110);
 
   const pageLoaded =
     document.readyState === "complete" ? Promise.resolve() : new Promise((r) => window.addEventListener("load", r, { once: true }));
-  const fontsReady = document.fonts ? document.fonts.ready.catch(() => {}) : Promise.resolve();
-  const minTime = new Promise((r) => setTimeout(r, CONFIG.loaderMinTime));
+  const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+  // The menu itself is already in the page, so a slow network never blocks the visitor.
+  const ready = Promise.race([pageLoaded, wait(CONFIG.loaderMaxWait)]);
 
-  return Promise.all([pageLoaded, fontsReady, minTime]).then(() => {
+  return Promise.all([ready, wait(CONFIG.loaderMinTime)]).then(() => {
     clearInterval(tick);
     bar.style.width = "100%";
+    loader.classList.add("is-ready");
     return new Promise((resolve) => {
       setTimeout(() => {
         status.hidden = true;

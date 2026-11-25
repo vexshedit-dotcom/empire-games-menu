@@ -21,11 +21,11 @@ export const STRINGS = {
     woodOnly: "خشبي فقط",
     hookahNote: "الأراكيل متوفرة بنوعين: بابلي وألماني (الألماني +{extra}).",
     mealBadge: "وجبة +{extra}",
-    mealNote: "حوّل السندويش إلى وجبة (ببسي + فنكر) بإضافة {extra}، للأصناف المعلّمة فقط.",
+    mealNote: "حوّل السندويش إلى وجبة (بيبسي + فنكر) بإضافة {extra}، للأصناف المعلّمة فقط.",
     toggleLang: "English",
     toggleTheme: "تبديل الثيم",
     toggleMusic: "الموسيقى",
-    footer: "صُنع بحب لزبائن إمباير جيمز",
+    footer: "صُنع بحب لزبائن امباير كيمز",
     linkSoon: "سيتوفر الرابط قريباً",
   },
   en: {

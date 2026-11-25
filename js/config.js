@@ -4,9 +4,10 @@
  */
 export const CONFIG = {
   brand: {
-    name: { ar: "إمباير جيمز", en: "Empire Games" },
+    name: { ar: "امباير كيمز", en: "Empire Games" },
     tagline: { ar: "مقهى ألعاب • مشروبات • أكل", en: "Gaming Café • Drinks • Food" },
-    logo: "assets/images/logo.png",
+    address: { ar: "باب الحسين - مجاور دائرة الكهرباء", en: "Bab Al-Hussein - next to the Electricity Department" },
+    logo: "assets/images/logo.webp",
   },
 
   // Paste the real links here (leave empty to hide the button).
@@ -40,5 +41,7 @@ export const CONFIG = {
   },
 
   // Minimum time (ms) the loading screen stays visible.
-  loaderMinTime: 1800,
+  loaderMinTime: 700,
+  // On a slow network, don't wait longer than this (ms) for the logo/font.
+  loaderMaxWait: 2500,
 };

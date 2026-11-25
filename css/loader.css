@@ -46,6 +46,26 @@
   filter: drop-shadow(0 0 10px rgba(242, 120, 58, 0.7));
 }
 
+/* Soft brand glow breathing behind the logo (only opacity/transform animate) */
+.loader__halo {
+  position: absolute;
+  inset: -90px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 201, 60, 0.55) 0%,
+    rgba(242, 120, 58, 0.4) 28%,
+    rgba(232, 53, 43, 0.18) 48%,
+    transparent 68%
+  );
+  animation: glow 1.8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.loader.is-ready .loader__halo {
+  animation-duration: 2.8s;
+}
+
 .loader__pulse {
   position: absolute;
   inset: 18px;
@@ -68,6 +88,7 @@
   font-weight: 900;
   letter-spacing: 0.5px;
   line-height: 1.2;
+  filter: drop-shadow(0 0 14px rgba(242, 120, 58, 0.55));
 }
 
 .loader__tagline {
@@ -81,7 +102,6 @@
   height: 6px;
   border-radius: 99px;
   background: var(--surface-2);
-  overflow: hidden;
 }
 
 .loader__bar span {
@@ -90,7 +110,7 @@
   width: 0%;
   border-radius: inherit;
   background: var(--grad-brand);
-  box-shadow: var(--glow);
+  box-shadow: 0 0 10px rgba(255, 201, 60, 0.8), 0 0 26px rgba(242, 120, 58, 0.75);
   transition: width 0.4s var(--ease-out);
 }
 
@@ -111,4 +131,53 @@
   font-size: 1.1rem;
   box-shadow: var(--glow), var(--shadow);
   animation: pop-in 0.5s var(--ease-spring) both, breathe 2.4s ease-in-out 0.5s infinite;
+}
+
+/* Written address, pinned to the bottom of the splash screen */
+.loader__address {
+  position: absolute;
+  inset-inline: 0;
+  bottom: calc(26px + env(safe-area-inset-bottom));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding-inline: var(--gutter);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  text-align: start;
+}
+
+.loader__address svg {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  fill: none;
+  stroke: var(--orange);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 0 8px rgba(242, 120, 58, 0.8));
+}
+
+.loader__address b {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.loader__address span span {
+  font-weight: 700;
+}
+
+@media (max-height: 560px) {
+  .loader__address {
+    bottom: 8px;
+  }
+
+  .loader__inner {
+    gap: 12px;
+    padding-bottom: 70px;
+  }
 }

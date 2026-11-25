@@ -6,6 +6,7 @@ const normalize = (s) =>
     .toLowerCase()
     .replace(/[ً-ٟـ]/g, "") // diacritics & tatweel
     .replace(/[أإآ]/g, "ا")
+    .replace(/[گجغ]/g, "ك") // تايكر = تايجر = تايغر
     .replace(/ة/g, "ه")
     .replace(/ى/g, "ي")
     .replace(/ê/g, "e")
@@ -18,7 +19,7 @@ const INDEX = MENU.flatMap((cat) =>
       item,
       cat,
       group,
-      text: normalize([item.ar, item.en, cat.name.ar, cat.name.en].join(" ")),
+      text: normalize([item.ar, item.en, item.desc?.ar, item.desc?.en, cat.name.ar, cat.name.en].filter(Boolean).join(" ")),
     }))
   )
 );

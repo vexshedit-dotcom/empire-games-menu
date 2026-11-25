@@ -4,10 +4,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="theme-color" content="#120906" />
-    <meta name="description" content="Empire Games café menu — drinks, hookah, crêpes and West Burger." />
+    <meta name="description" content="منيو امباير كيمز: مشروبات، أراكيل، كريب وويست برغر." />
+    <meta property="og:title" content="Empire Games Menu" />
+    <meta property="og:description" content="منيو امباير كيمز: مشروبات، أراكيل، كريب وويست برغر." />
     <title>Empire Games Menu</title>
-    <link rel="icon" type="image/png" href="assets/images/logo.png" />
-    <link rel="apple-touch-icon" href="assets/images/logo.png" />
+    <link rel="icon" type="image/png" href="assets/images/icon.png" />
+    <link rel="apple-touch-icon" href="assets/images/icon.png" />
 
     <!-- Apply saved theme/language before paint to avoid a flash -->
     <script>
@@ -23,10 +25,10 @@
       } catch (e) {}
     </script>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="preload" href="assets/images/logo.webp" as="image" type="image/webp" fetchpriority="high" />
+    <link rel="preload" href="assets/fonts/cairo.woff2" as="font" type="font/woff2" crossorigin />
 
+    <link rel="stylesheet" href="css/fonts.css" />
     <link rel="stylesheet" href="css/variables.css" />
     <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/loader.css" />
@@ -42,23 +44,28 @@
     <div class="loader" id="loader" role="status">
       <div class="loader__inner">
         <div class="loader__logo-wrap">
+          <div class="loader__halo"></div>
           <div class="loader__pulse"></div>
           <div class="loader__ring"></div>
-          <img class="loader__logo" src="assets/images/logo.png" alt="Empire Games" />
+          <img class="loader__logo" src="assets/images/logo.webp" alt="Empire Games" />
         </div>
-        <h1 class="loader__title gradient-text" data-brand="name">Empire Games</h1>
+        <h1 class="loader__title gradient-text" data-brand="name">امباير كيمز</h1>
         <p class="loader__tagline" data-brand="tagline"></p>
         <div class="loader__bar"><span id="loaderBar"></span></div>
         <p class="loader__status" id="loaderStatus" data-i18n="loading"></p>
         <button class="loader__enter ripple" id="enterBtn" type="button" hidden data-i18n="enter"></button>
       </div>
+      <p class="loader__address">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z" /><circle cx="12" cy="10" r="2.5" /></svg>
+        <span><b data-i18n="location">موقعنا</b><span data-brand="address">باب الحسين - مجاور دائرة الكهرباء</span></span>
+      </p>
     </div>
 
     <!-- App -->
     <div class="app" id="app" hidden>
       <header class="topbar">
         <a class="brand" href="#/">
-          <img src="assets/images/logo.png" alt="" />
+          <img src="assets/images/logo.webp" alt="" />
           <span class="gradient-text" data-brand="name">Empire Games</span>
         </a>
         <div class="actions">

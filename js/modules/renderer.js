@@ -79,6 +79,7 @@ function itemInfo(item, extraMeta = "") {
     <div class="item__info">
       <span class="item__name">${esc(pick(item))}</span>
       ${alt ? `<span class="item__alt">${esc(alt)}</span>` : ""}
+      ${item.desc ? `<span class="item__desc">${esc(pick(item.desc))}</span>` : ""}
       ${extraMeta ? `<div class="item__meta">${extraMeta}</div>` : ""}
     </div>`;
 }

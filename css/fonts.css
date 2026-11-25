@@ -1,0 +1,8 @@
+/* Cairo (OFL), self-hosted and subset to Arabic + basic Latin */
+@font-face {
+  font-family: "Cairo";
+  font-weight: 400 900;
+  font-style: normal;
+  font-display: swap;
+  src: url("../assets/fonts/cairo.woff2") format("woff2");
+}
